@@ -110,12 +110,14 @@ cd "$COLLECTION_PATH"
 ```
 
 **Why rsync instead of symlink:**
+
 - Symlinks can fail with some ansible-test versions
 - rsync ensures clean, isolated test environment
 - Excludes unnecessary files (.git, .tox, .venv)
 - More reliable across different systems
 
 **Automatic cleanup:**
+
 - Temporary structure removed automatically via `trap` on exit
 - No manual cleanup needed
 - Preserves disk space

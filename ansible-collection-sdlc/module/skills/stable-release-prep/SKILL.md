@@ -79,6 +79,7 @@ The `--release-date` parameter allows you to set a custom date in `changelogs/ch
 This skill supports shared virtual environments for better coordination with the release orchestrator.
 
 **Priority order:**
+
 1. Use `ANSIBLE_RELEASE_VENV` if provided by orchestrator (fastest - no installation)
 2. Create skill-specific `.venv` if not (fallback for standalone use)
 

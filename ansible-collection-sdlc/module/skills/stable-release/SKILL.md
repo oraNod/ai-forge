@@ -133,6 +133,7 @@ echo "✓ Shared venv created and activated"
 ```
 
 **Benefits:**
+
 - Sub-skills check `$ANSIBLE_RELEASE_VENV` and reuse if present
 - Saves ~30-45 seconds (no duplicate venv creation)
 - Ensures version consistency across skills
@@ -222,6 +223,7 @@ export SANITY_ON_COMMIT="true"
 The orchestrator executes in this order:
 
 ### Step 0: Pre-Flight Validation
+
 - Check required tools (git, gh, tox, ansible-test, antsibull-changelog)
 - Verify gh CLI authentication
 - Ensure clean working tree
@@ -231,41 +233,49 @@ The orchestrator executes in this order:
 **On failure:** Abort immediately, provide actionable error message
 
 ### Step 1: Setup Shared Environment
+
 - Create shared virtual environment
 - Install all dependencies once
 - Export `ANSIBLE_RELEASE_VENV` for sub-skills
 - Activate venv for current session
 
 ### Step 2: Analysis
+
 - Run `stable-release-analyze` to determine version needed
 - Calculate SemVer bump from changelog fragments
 - Prompt user to proceed (unless `--auto`)
 
 ### Step 3: Preparation
+
 - Run `stable-release-prep` (reuses shared venv)
 - Update galaxy.yml version
 - Generate changelog with antsibull-changelog
 - Create release summary fragment
 
 ### Step 4: Documentation (Optional)
+
 - Run `docs-generate` if not `--skip-docs`
 - Update module RST files and README.md
 
 ### Step 5: Quality Checks (Parallel)
+
 - Run `tox-lint` and `sanity` in parallel
 - Unless `--skip-lint` or `--skip-sanity`
 - Fail workflow if checks fail (unless `--force`)
 
 ### Step 6: Commit & Push
+
 - Stage all changes
 - Create commit with standard message
 - Push to origin (fork)
 
 ### Step 7: Pull Request (Conditional)
+
 - Create PR if `--create-pr` or `AUTO_CREATE_PR=true`
 - Otherwise prompt user
 
 ### Step 8: Cleanup
+
 - Remove shared virtual environment
 - Display summary and next steps
 
