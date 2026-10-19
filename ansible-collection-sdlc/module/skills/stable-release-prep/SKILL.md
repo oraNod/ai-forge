@@ -221,8 +221,8 @@ SKILL_DIR/scripts/run-antsibull-changelog.sh release --version VERSION \
 ```
 
 **Why the helper script:**
-antsibull-changelog (via ansible-core) requires blocking IO on file descriptors.  
-The helper script (`scripts/run-antsibull-changelog.sh`) automatically sets this up,  
+antsibull-changelog (via ansible-core) requires blocking IO on file descriptors.
+The helper script (`scripts/run-antsibull-changelog.sh`) automatically sets this up,
 eliminating the need for inline Python wrappers.
 
 **Parameters:**

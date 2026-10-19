@@ -179,7 +179,7 @@ Reads from `~/.ansible-release.conf`:
 export GITHUB_USERNAME="alinabuzachis"
 export ANSIBLE_COLLECTIONS_PATH="~/dev/collections/ansible_collections"
 export SANITY_MODE="smart"
-export AUTO_CREATE_PR="prompt"  # true | false | prompt
+export AUTO_CREATE_PR="prompt" # true | false | prompt
 export LINT_ON_COMMIT="true"
 export SANITY_ON_COMMIT="true"
 ```
