@@ -10,7 +10,7 @@
 # but some environments (like Claude Code's Bash tool) set them to non-blocking.
 # This wrapper fixes that before invoking antsibull-changelog.
 
-python3 -I << 'PYTHON_EOF'
+python3 -I - "$@" << 'PYTHON_EOF'
 import sys
 import os
 import fcntl
